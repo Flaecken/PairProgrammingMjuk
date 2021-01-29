@@ -20,6 +20,7 @@ public class BigClass {
     public BigClass(){
         this(0,null);
     }
+
     // Här implementera
     public void setNumber(int n){
         if(n > 0) {
@@ -47,6 +48,20 @@ public class BigClass {
 
     public void changeToNull(String t) {
 
+    }
+
+    /*En metod som adderar number med ett nytt tal, och ersätter number-variabeln med summan. Ett negativt tal skall ej accepteras.*/
+
+    public int addNumbers(int secondNumber) {
+
+        int temp = 0;
+        int sum = 0;
+        if (temp > 0) {
+            sum = temp + number;
+        } else {
+            System.out.println("Error");
+        }
+        return sum;
     }
 
     @Override

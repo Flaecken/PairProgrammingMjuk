@@ -23,11 +23,36 @@ public class BigClassTestStefan {
     }
 
     @Test
-    @DisplayName("Kolla om setters/getters funkar.")
+    @DisplayName("Kolla om setters funkar.")
 
-    int showMyNumber(int expected, int input) {
-        BigClass testObject = new BigClass();
-        testObject.setNumber(10);
+    void checkSetFunction() {
+        BigClass testObject = new BigClass(10);
+        int expected = 10;      // Test code
+        testObject.setNumber(-10);  //CUT
+        int actual = testObject.getNumber();
+        Assertions.assertEquals(expected, actual); // Assertions
+    }
+
+    @Test
+    @DisplayName("Kolla även om getters funkar.")
+    void checkGetFunction() {
+        BigClass testObject = new BigClass("Stefan");
+        String expected = "Stefan";
+        String actual = testObject.getText();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void checkSumOfNumbers(int expected, int number) {
+        BigClass testObject = new BigClass(10);
+        int expected = 10 + number;
+        int actual = testObject.addNumbers(expected);
+    }
+
+    @Test
+    @DisplayName("Kolla toUpperCase-metoden.")
+
+    void showUpperString(String text, String input) {
 
     }
 }
