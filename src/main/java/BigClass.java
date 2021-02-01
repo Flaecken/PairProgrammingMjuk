@@ -52,16 +52,14 @@ public class BigClass {
 
     /*En metod som adderar number med ett nytt tal, och ersätter number-variabeln med summan. Ett negativt tal skall ej accepteras.*/
 
-    public int addNumbers(int secondNumber) {
-
-        int temp = 0;
-        int sum = 0;
-        if (temp > 0) {
-            sum = temp + number;
+    public int addNumbers(int a, int b) {
+        int sum = a+b;
+        if (sum >= 0) {
+            return sum;
         } else {
-            System.out.println("Error");
+            System.out.println("Error, this test doesn't allow negative results");
         }
-        return sum;
+        return a + b;
     }
 
     @Override

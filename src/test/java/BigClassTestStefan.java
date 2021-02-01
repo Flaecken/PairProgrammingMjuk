@@ -43,16 +43,10 @@ public class BigClassTestStefan {
     }
 
     @Test
-    void checkSumOfNumbers(int expected, int number) {
-        BigClass testObject = new BigClass(10);
-        int expected = 10 + number;
-        int actual = testObject.addNumbers(expected);
-    }
-
-    @Test
-    @DisplayName("Kolla toUpperCase-metoden.")
-
-    void showUpperString(String text, String input) {
-
+    void checkSumOfNumbers() {
+        BigClass testObject = new BigClass(0);
+        int expected = 20;
+        int actual = testObject.addNumbers(10,10);
+        Assertions.assertEquals(expected, actual);
     }
 }
