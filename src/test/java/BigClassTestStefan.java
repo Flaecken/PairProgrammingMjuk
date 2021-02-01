@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.Tag;
 
 public class BigClassTestStefan {
 
@@ -48,5 +49,34 @@ public class BigClassTestStefan {
         int expected = 20;
         int actual = testObject.addNumbers(10,10);
         Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    @DisplayName("Method that turns letters to UpperCase.")
+    @Tag("UnderDevelopment...")
+    void checkUpperCase() {
+        BigClass testObject = new BigClass("Stefan"); //Test code
+        String expected = "STEFAN"; //Test code
+        testObject.turnLettersToUpper(); //CUT
+        Assertions.assertEquals(expected, testObject.getText()); //Assertions
+    }
+
+    @Test
+    @DisplayName("Method that turns letters to NULL")
+    @Tag("UnderConstruction...")
+    void checkTextNull() {
+        BigClass testObject = new BigClass("null");
+        String expected = null;
+        testObject.turnTextToNull();
+        String actual = testObject.getText();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    @DisplayName("Method that checks method toString")
+    void checkToString() {
+        BigClass testObject = new BigClass();
+        String actual = testObject.toString();
+        System.out.println(actual);
     }
 }

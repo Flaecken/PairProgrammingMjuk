@@ -23,7 +23,7 @@ public class BigClass {
 
     // Här implementera
     public void setNumber(int n){
-        if(n > 0) {
+        if(n >= 0) {
             this.number = n;
         } else {
             System.out.println("Error.");
@@ -42,12 +42,12 @@ public class BigClass {
         return text;
     }
 
-    public void changeToUpperCase(String t, String input){
-        t = input.toUpperCase();
+    public void turnLettersToUpper() {
+        setText(text.toUpperCase());
     }
 
-    public void changeToNull(String t) {
-
+    public void turnTextToNull() {
+        setText(text = null);
     }
 
     /*En metod som adderar number med ett nytt tal, och ersätter number-variabeln med summan. Ett negativt tal skall ej accepteras.*/
