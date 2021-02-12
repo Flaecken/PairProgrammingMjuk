@@ -7,7 +7,7 @@ public class EmployeeSystem {
     @Test
     @DisplayName("Checking method for firstName")
     void checkSetFunctionWithGetForFirstName() {
-        Employee testObject = new Employee("Stefan","Nikolic",28);     // Test Code
+        Employee testObject = new Employee("Stefan","Nikolic",28, 23331.2);     // Test Code
         String expected = "Stefan";         // Test Code
         testObject.setFirstName("Stefan");         // Test Code
         String actual = testObject.getFirstName();         // CUT
@@ -17,7 +17,7 @@ public class EmployeeSystem {
     @Test
     @DisplayName("Checking method for lastName")
     void checkSetFunctionWithGetForLastName() {
-        Employee testObject = new Employee("Jolin","Franzke",22);     // Test Code
+        Employee testObject = new Employee("Jolin","Franzke",22, 24455.72);     // Test Code
         String expected = "Jolin";         // Test Code
         testObject.setLastName("Jolin");         // Test Code
         String actual = testObject.getLastName();         // CUT
@@ -27,34 +27,68 @@ public class EmployeeSystem {
     @Test
     @DisplayName("Checking method for age")
     void checkSetFunctionWithGetForAge() {
-        Employee testObject = new Employee("Jeff","Jeffson", 24);
+        Employee testObject = new Employee("Jeff","Jeffson", 24, 25000.1);
         int expected = 24;
         testObject.setAge(24);
         int actual = testObject.getAge();
         Assertions.assertEquals(expected, actual);
     }
 
-    //TODO -- EmployeeCompanyID
-
-    //fixme
-    // -- Kolla angående EmployeeCompanyID - tyda korrekt metod.
-    // -- I klassen Employee
-    // -- Försöka få fram Jeff Jeffson mer som testperson, för han e boss.
-    /*
     @Test
     @DisplayName("Checking function for EmployeeCompanyID")
-    void checkEmployeeCompanyID() {
-        //Random object för Unikt id?
-        //Varje anställd ska ha en SLUMPMÄSSIGT ide (Random?).
-        Employee testObject = new Employee("Stina","Sigurd",60);
-        int expected = 505;
-        testObject.getCompanyID();
-    } */
+    void getUniqueID() {
+
+        Employee testObject = new Employee("Stina","Sigurd",60, 25000.1);
+        Employee testObject2 = new Employee("Olof","Sigurd",20, 24552.2);
+        int expected = 1;
+        int expected2 = 2;
+        int actual = testObject.getUniqueCompanyID();
+        int actual2 = testObject2.getUniqueCompanyID();
+        Assertions.assertEquals(expected, actual);
+        Assertions.assertEquals(expected2, actual2);
+    }
 
     @Test
     @DisplayName("Check function monthlySalary")
     void getMonthlySalary() {
-        Employee testObject = new Employee("Jeff","Jeffson",24,25000.12);
-
+        Employee testObject = new Employee("Jeff","Jeffson",24,25000.1);
+        double expected = 25000.1;
+        double actual = testObject.getMonthlySalary();
+        Assertions.assertEquals(expected,actual);
     }
+
+    @Test
+    @DisplayName("Check method if an Employee has been added to the arraylist.")
+    void checkIfAddEmployeeArray() {
+        EmployeeList testObject = new EmployeeList();
+        Employee emp = new Employee("Jolin","Franzke",22,33000.75);
+        Employee emp2 = new Employee(null,null,0,0);
+        testObject.addEmployeeToList(emp);
+        //testObject.addEmployeeToList(emp2);
+        Assertions.assertEquals(emp,testObject.getEmployee(emp.getUniqueCompanyID()));
+        //Assertions.assertEquals(emp2,testObject.getEmployee(emp2.getUniqueCompanyID()));
+    }
+
+    @Test
+    @DisplayName("Check methoed if an Employee has been removed from the arraylist.")
+    void checkIfRemoveEmployee() {
+        EmployeeList testObject = new EmployeeList();
+        Employee emp = new Employee("Stefan","Nikolic",28,33000.74);
+        Employee emp3 = new Employee("Jeff","Jeffson",24,23000.75);
+        Employee emp1 = new Employee("Jolin","Franzke",22,33000.75);
+        int expected = 2;
+        testObject.addEmployeeToList(emp);
+        testObject.addEmployeeToList(emp1);
+        testObject.addEmployeeToList(emp3);
+        testObject.removeEmployeeFromList(emp);
+        int actual = testObject.checkArray();
+        Assertions.assertEquals(expected, actual);
+    }
+
+     /*
+    Employee emp1 = new Employee("Jolin","Franzke",22,33000.75);
+    Employee emp2 = new Employee("Stefan","Nikolic",28,33000.74);
+    Employee emp3 = new Employee("Jeff","Jeffson",24,23000.75);
+    Employee emp4 = new Employee("Gustav","Vasa",77,3300022.75);
+    Employee emp5 = new Employee("Lill","Babz",68,1003000.75);*/
 }

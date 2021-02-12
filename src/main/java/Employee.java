@@ -1,14 +1,21 @@
+
+
 public class Employee {
 
     private String firstName;
     private String lastName;
     private int age;
-    //Kanske standardvariabel här med Unik ID?
+    private double monthlySalary;
+    private static int companyID = 0;
+    private int correctID;
 
-    public Employee(String fn, String ln, int a) {
+    public Employee(String fn, String ln, int a, double m) {
         this.firstName = fn;
         this.lastName = ln;
         this.age = a;
+        this.monthlySalary = m;
+        companyID++;
+        this.correctID = companyID;
     }
 
     public void setFirstName(String fn) {
@@ -35,7 +42,12 @@ public class Employee {
         return age;
     }
 
-    public void getCompanyID() {
-        //Kanske metod som ger ID efter man instansierar objektet?
+    public int getUniqueCompanyID() {
+        return correctID;
     }
+
+    public double getMonthlySalary() {
+        return monthlySalary;
+    }
+
 }
