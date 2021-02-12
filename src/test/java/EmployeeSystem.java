@@ -64,31 +64,25 @@ public class EmployeeSystem {
         Employee emp = new Employee("Jolin","Franzke",22,33000.75);
         Employee emp2 = new Employee(null,null,0,0);
         testObject.addEmployeeToList(emp);
-        //testObject.addEmployeeToList(emp2);
+        testObject.addEmployeeToList(emp2);
+        testObject.removeEmployeeFromList(emp2);
         Assertions.assertEquals(emp,testObject.getEmployee(emp.getUniqueCompanyID()));
-        //Assertions.assertEquals(emp2,testObject.getEmployee(emp2.getUniqueCompanyID()));
+        Assertions.assertNull(testObject.getEmployee(emp2.getUniqueCompanyID()));
     }
 
     @Test
-    @DisplayName("Check methoed if an Employee has been removed from the arraylist.")
+    @DisplayName("Check method if an Employee has been removed from the arraylist.")
     void checkIfRemoveEmployee() {
         EmployeeList testObject = new EmployeeList();
         Employee emp = new Employee("Stefan","Nikolic",28,33000.74);
-        Employee emp3 = new Employee("Jeff","Jeffson",24,23000.75);
-        Employee emp1 = new Employee("Jolin","Franzke",22,33000.75);
-        int expected = 2;
+        Employee emp1 = new Employee("Jeff","Jeffson",24,23000.75);
+        Employee emp2 = new Employee("Jolin","Franzke",22,33000.75);
         testObject.addEmployeeToList(emp);
         testObject.addEmployeeToList(emp1);
-        testObject.addEmployeeToList(emp3);
+        testObject.addEmployeeToList(emp2);
         testObject.removeEmployeeFromList(emp);
+        int expected = 2;
         int actual = testObject.checkArray();
         Assertions.assertEquals(expected, actual);
     }
-
-     /*
-    Employee emp1 = new Employee("Jolin","Franzke",22,33000.75);
-    Employee emp2 = new Employee("Stefan","Nikolic",28,33000.74);
-    Employee emp3 = new Employee("Jeff","Jeffson",24,23000.75);
-    Employee emp4 = new Employee("Gustav","Vasa",77,3300022.75);
-    Employee emp5 = new Employee("Lill","Babz",68,1003000.75);*/
 }

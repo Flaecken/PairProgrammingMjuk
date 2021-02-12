@@ -16,8 +16,8 @@ public class EmployeeList {
                 return listOfEmployees.get(i);
             }
         }
-        System.out.println("Couldn't find any employee");
-        return new Employee(null,null,0,0);
+        System.out.println("Error");
+        return null;
     }
 
     public int checkArray() {
@@ -25,18 +25,6 @@ public class EmployeeList {
         System.out.println(checkSize);
         return checkSize;
     }
-
-    /* public Employee checkArray(int companyID) {
-        for (int i = 0; i < listOfEmployees.toArray().length; i++) {
-            if (listOfEmployees.get(i).getUniqueCompanyID() == companyID) {
-                listOfEmployees.get(i).getUniqueCompanyID();
-                System.out.println(listOfEmployees.toArray().length);
-                return listOfEmployees.get(i);
-            }
-        }
-        System.out.println("Error.");
-        return new Employee(null, null, 0, 0);
-    } */
 
     public void removeEmployeeFromList(Employee emp) {
         listOfEmployees.remove(emp);
