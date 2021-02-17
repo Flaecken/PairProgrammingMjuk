@@ -1,5 +1,3 @@
-
-
 public class Employee {
 
     private String firstName;
@@ -50,4 +48,11 @@ public class Employee {
         return monthlySalary;
     }
 
+    public void raiseMonthlySalary(double raiseProcent) {
+
+        if(raiseProcent >= 0 && raiseProcent <= 100) {
+            double newSalary = (monthlySalary/raiseProcent)+monthlySalary;
+            monthlySalary = newSalary;
+        }
+    }
 }

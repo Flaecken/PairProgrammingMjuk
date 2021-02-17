@@ -11,22 +11,34 @@ public class EmployeeList {
     public Employee getEmployee(int companyID) {
         for (int i = 0; i < listOfEmployees.size(); i++) {
             if (listOfEmployees.get(i).getUniqueCompanyID() == companyID) {
-                listOfEmployees.get(i).getUniqueCompanyID();
-                System.out.println(listOfEmployees.size());
                 return listOfEmployees.get(i);
             }
         }
-        System.out.println("Error");
         return null;
     }
 
-    public int checkArray() {
-        int checkSize = listOfEmployees.size();
-        System.out.println(checkSize);
-        return checkSize;
+    public void raiseEveryEmployeesSalary(double raiseSalary) {
+        for (int i = 0; i < listOfEmployees.size(); i++) {
+            listOfEmployees.get(i).raiseMonthlySalary(raiseSalary);
+            }
+        }
+
+    public void raiseSpecificEmployeeSalary(int companyID,double raise) {
+        for (int i = 0; i < listOfEmployees.size(); i++) {
+            if (listOfEmployees.get(i).getUniqueCompanyID() == companyID) {
+                listOfEmployees.get(i).raiseMonthlySalary(raise);
+            }
+        }
     }
 
-    public void removeEmployeeFromList(Employee emp) {
-        listOfEmployees.remove(emp);
-    }
+        public int checkArray () {
+            int checkSize = listOfEmployees.size();
+            System.out.println(checkSize);
+            return checkSize;
+        }
+
+        public void removeEmployeeFromList (Employee emp){
+            listOfEmployees.remove(emp);
+        }
+
 }
